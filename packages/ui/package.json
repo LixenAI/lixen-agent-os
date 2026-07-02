@@ -2,6 +2,7 @@
   "name": "@lixen/ui",
   "version": "1.0.0",
   "description": "LixenAI shared design system — light theme only",
+  "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {
