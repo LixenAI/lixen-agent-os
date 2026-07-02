@@ -16,6 +16,7 @@ from pydantic import BaseModel
 
 from main import LixenOS
 from chat import router as chat_router
+from agent_studio import router as agent_studio_router, store as governance_store
 
 # Global instance
 lixen_os: Optional[LixenOS] = None
@@ -54,6 +55,7 @@ app.add_middleware(
 
 # ─── Routers ───────────────────────────────────────────────
 app.include_router(chat_router)
+app.include_router(agent_studio_router)
 
 
 class TaskRequest(BaseModel):
@@ -125,11 +127,16 @@ async def run_workflow(context: Optional[Dict[str, Any]] = None):
 
 @app.get("/agents")
 async def list_agents():
-    """List all registered agents and their status."""
+    """List all registered agents across both runtimes: agents executing
+    inside Biz-OS and agents deployed in GHL Agent Studio."""
     if not lixen_os:
         raise HTTPException(status_code=503, detail="System not initialized")
-    agents = lixen_os.orchestrator.registry.list_agents()
-    return {"agents": agents}
+    native = [
+        {**status, "runtime": "biz_os_native"}
+        for status in lixen_os.orchestrator.registry.list_agents()
+    ]
+    external = [a.to_dict() for a in governance_store.external_agents.values()]
+    return {"agents": native + external}
 
 
 @app.get("/gates")

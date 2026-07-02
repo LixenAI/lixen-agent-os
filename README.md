@@ -22,7 +22,7 @@ launch-command-center/
 
 ## Prerequisites
 
-- **Node.js**: v24+ (see `.nvmrc`)
+- **Node.js**: v22 (see `.nvmrc`)
 - **Python**: 3.9+ (for Agent-OS)
 - **npm**: v10+ (workspaces support)
 

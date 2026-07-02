@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "LixenAI all-in-one business operating system — Command Center + Agent OS + shared packages",
   "private": true,
+  "packageManager": "npm@10.9.7",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
     "dev:command": "npm run dev -w apps/command-center",
-    "dev:agent": "cd apps/agent-os && python server.py",
+    "dev:agent": "cd apps/agent-os && python3 server.py",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "test": "turbo run test"
