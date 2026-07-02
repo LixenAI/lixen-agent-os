@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: lixen-command-center
+    runtime: node
+    buildCommand: "npm install && npm run build -w apps/command-center"
+    startCommand: "npm run start -w apps/command-center"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - fromGroup: lixen-shared
+    plan: free
+
+  - type: web
+    name: lixen-agent-os
+    runtime: python
+    plan: free
+    buildCommand: "cd apps/agent-os && pip install -r requirements.txt"
+    startCommand: "cd apps/agent-os && python server.py"
+    healthCheckPath: /health
+    envVars:
+      - key: LIXEN_ENV
+        value: production
+      - fromGroup: lixen-shared
+
+envVarGroups:
+  - name: lixen-shared
+    envVars:
+      - key: GHL_API_KEY
+        sync: false
+      - key: GHL_LOCATION_ID
+        sync: false
+      - key: CLAUDE_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false

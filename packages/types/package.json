@@ -1,0 +1,16 @@
+{
+  "name": "@lixen/types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript types for LixenAI",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": false,
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
