@@ -1,30 +1,36 @@
 services:
+  # ── Command Center (Next.js) ──────────────────────────────
   - type: web
     name: lixen-command-center
     runtime: node
-    buildCommand: "npm install && npm run build -w apps/command-center"
-    startCommand: "npm run start -w apps/command-center"
+    rootDir: apps/command-center
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm run start"
+    plan: free
     envVars:
       - key: NODE_ENV
         value: production
-      - fromGroup: lixen-shared
-    plan: free
+      - key: DEMO_OPERATOR_TOKEN
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
 
+  # ── Agent OS (FastAPI / Python) ───────────────────────────
   - type: web
     name: lixen-agent-os
     runtime: python
-    plan: free
-    buildCommand: "cd apps/agent-os && pip install -r requirements.txt"
-    startCommand: "cd apps/agent-os && python server.py"
+    rootDir: apps/agent-os
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn server:app --host 0.0.0.0 --port $PORT"
     healthCheckPath: /health
+    plan: free
     envVars:
       - key: LIXEN_ENV
         value: production
-      - fromGroup: lixen-shared
-
-envVarGroups:
-  - name: lixen-shared
-    envVars:
       - key: GHL_API_KEY
         sync: false
       - key: GHL_LOCATION_ID
@@ -32,4 +38,30 @@ envVarGroups:
       - key: CLAUDE_API_KEY
         sync: false
       - key: OPENAI_API_KEY
+        sync: false
+      - key: GOOGLE_DRIVE_CREDENTIALS
+        sync: false
+      - key: GOOGLE_DRIVE_FOLDER_ID
+        sync: false
+      - key: NOTION_API_KEY
+        sync: false
+      - key: NOTION_DATABASE_ID
+        sync: false
+      - key: GMAIL_CREDENTIALS
+        sync: false
+      - key: GMAIL_FROM_EMAIL
+        sync: false
+      - key: SLACK_BOT_TOKEN
+        sync: false
+      - key: SLACK_WEBHOOK_URL
+        sync: false
+      - key: SLACK_DEFAULT_CHANNEL
+        value: "#general"
+      - key: CALENDAR_CREDENTIALS
+        sync: false
+      - key: CALENDAR_ID
+        value: primary
+      - key: STRIPE_API_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
         sync: false
