@@ -16,7 +16,8 @@
     "@lixen/ui": "*",
     "@lixen/auth": "*",
     "@lixen/config": "*",
-    "@lixen/types": "*"
+    "@lixen/types": "*",
+    "express": "^4.19.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

@@ -1,10 +1,10 @@
 services:
-  # ── Command Center (Next.js) ──────────────────────────────
+  # ── Command Center (Next.js → Express static) ─────────────
   - type: web
     name: lixen-command-center
     runtime: node
     buildCommand: "npm install && npm run build -w apps/command-center"
-    startCommand: "npm run start -w apps/command-center"
+    startCommand: "node apps/command-center/server.js"
     plan: free
     envVars:
       - key: NODE_ENV
