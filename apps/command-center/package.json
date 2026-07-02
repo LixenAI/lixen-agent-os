@@ -1,0 +1,15 @@
+{
+  "name": "lixenai-launch-command-center",
+  "version": "1.0.0",
+  "description": "LixenAI Launch Command Center — Internal launch command center for GHL agency launch playbook, tracker, and copy library.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
