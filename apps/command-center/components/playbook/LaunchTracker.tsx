@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { sourceStatusStyle } from "@/lib/badges";
-import type { TrackerItem } from "@/lib/types";
+import type { TrackerItem } from "@lixen/types";
 import { ArrowRightIcon } from "../icons";
 
 export function LaunchTracker({ tracker }: { tracker: TrackerItem[] }) {
@@ -21,7 +21,7 @@ export function LaunchTracker({ tracker }: { tracker: TrackerItem[] }) {
             {tracker.map((row) => (
               <tr
                 key={row.id}
-                className="border-b border-hairline transition-colors last:border-0 hover:bg-neon-500/5 hover:shadow-[inset_0_0_0_1px_rgba(86,168,255,0.18)]"
+                className="border-b border-hairline transition-colors last:border-0 hover:bg-neon-400/5 hover:shadow-[inset_0_0_0_1px_rgba(91,184,255,0.18)]"
               >
                 <td className="td font-medium">{row.title}</td>
                 <td className="td text-muted">{row.phase}</td>
@@ -39,7 +39,7 @@ export function LaunchTracker({ tracker }: { tracker: TrackerItem[] }) {
       <div className="border-t border-hairline p-2 text-center">
         <Link
           href="/tracker"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-neon-400 transition-colors hover:text-neon-300"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-neon-500 transition-colors hover:text-neon-600"
         >
           View Full Tracker
           <ArrowRightIcon className="h-3.5 w-3.5" />

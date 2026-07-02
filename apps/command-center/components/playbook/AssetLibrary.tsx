@@ -1,4 +1,4 @@
-import type { AssetFolder } from "@/lib/types";
+import type { AssetFolder } from "@lixen/types";
 import { FilterIcon, FolderIcon, PlusIcon, SearchIcon } from "../icons";
 
 export function AssetLibrary({ assets }: { assets: AssetFolder[] }) {
@@ -6,7 +6,7 @@ export function AssetLibrary({ assets }: { assets: AssetFolder[] }) {
     <section className="panel flex flex-col">
       <h2 className="th border-b border-hairline">Asset Library (Copy / Paste)</h2>
       <div className="flex items-center gap-2 border-b border-hairline p-2">
-        <div className="flex flex-1 items-center gap-2 rounded-md border border-hairline bg-slate-900/40 px-2.5 py-1.5 focus-within:border-neon-500/50 focus-within:shadow-neon">
+        <div className="flex flex-1 items-center gap-2 rounded-md border border-hairline bg-surface px-2.5 py-1.5 focus-within:border-neon-400/50 focus-within:shadow-neon">
           <SearchIcon className="h-3.5 w-3.5 text-muted" />
           <input
             type="text"
@@ -16,7 +16,7 @@ export function AssetLibrary({ assets }: { assets: AssetFolder[] }) {
         </div>
         <button
           aria-label="Filter assets"
-          className="rounded-md border border-hairline bg-slate-900/40 p-1.5 text-muted transition-colors hover:border-neon-500/40 hover:bg-white/5 hover:text-neon-300"
+          className="rounded-md border border-hairline bg-surface p-1.5 text-muted transition-colors hover:border-neon-400/40 hover:bg-slate-100/50 hover:text-neon-600"
         >
           <FilterIcon className="h-3.5 w-3.5" />
         </button>
@@ -24,8 +24,8 @@ export function AssetLibrary({ assets }: { assets: AssetFolder[] }) {
       <ul className="flex flex-col p-1">
         {assets.map((folder) => (
           <li key={folder.id}>
-            <button className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors hover:bg-white/5">
-              <FolderIcon className="h-4 w-4 text-neon-400" />
+            <button className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors hover:bg-slate-100/50">
+              <FolderIcon className="h-4 w-4 text-neon-500" />
               <span className="font-medium text-ink">{folder.name}</span>
               <span className="ml-auto text-xs text-muted">{folder.count}</span>
             </button>
@@ -33,7 +33,7 @@ export function AssetLibrary({ assets }: { assets: AssetFolder[] }) {
         ))}
       </ul>
       <div className="border-t border-hairline p-2">
-        <button className="flex w-full items-center justify-center gap-2 rounded-md border border-neon-500/40 bg-neon-500/10 px-3 py-2 text-xs font-medium text-neon-300 transition-colors hover:bg-neon-500/20 hover:shadow-neon">
+        <button className="flex w-full items-center justify-center gap-2 rounded-md border border-neon-400/40 bg-neon-400/10 px-3 py-2 text-xs font-medium text-neon-600 transition-colors hover:bg-neon-400/20 hover:shadow-neon">
           <PlusIcon className="h-4 w-4" />
           New Asset
         </button>

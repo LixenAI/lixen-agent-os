@@ -1,4 +1,4 @@
-import type { PlaybookPhase } from "@/lib/types";
+import type { PlaybookPhase } from "@lixen/types";
 import { ChevronRightIcon, ViewIcon } from "../icons";
 
 export function PhasesCard({
@@ -20,8 +20,8 @@ export function PhasesCard({
                 className={[
                   "flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors",
                   active
-                    ? "border border-neon-500/40 bg-neon-500/15 text-neon-300 shadow-neon"
-                    : "text-ink hover:bg-white/5",
+                    ? "border border-neon-400/40 bg-neon-400/10 text-neon-600 shadow-neon"
+                    : "text-ink hover:bg-slate-100/50",
                 ].join(" ")}
               >
                 <span className="font-medium">
@@ -30,7 +30,7 @@ export function PhasesCard({
                 <span
                   className={[
                     "ml-auto text-xs font-semibold",
-                    active ? "text-neon-300" : "text-muted",
+                    active ? "text-neon-600" : "text-muted",
                   ].join(" ")}
                 >
                   {phase.completion}%
@@ -38,7 +38,7 @@ export function PhasesCard({
                 <ChevronRightIcon
                   className={[
                     "h-3.5 w-3.5",
-                    active ? "text-neon-300" : "text-muted",
+                    active ? "text-neon-600" : "text-muted",
                   ].join(" ")}
                 />
               </button>
@@ -47,7 +47,7 @@ export function PhasesCard({
         })}
       </ul>
       <div className="mt-auto border-t border-hairline p-2">
-        <button className="flex w-full items-center justify-center gap-2 rounded-md border border-hairline px-3 py-2 text-xs font-medium text-ink transition-colors hover:border-neon-500/40 hover:bg-white/5 hover:text-neon-300">
+        <button className="flex w-full items-center justify-center gap-2 rounded-md border border-hairline px-3 py-2 text-xs font-medium text-ink transition-colors hover:border-neon-400/40 hover:bg-slate-100/50 hover:text-neon-600">
           <ViewIcon className="h-4 w-4" />
           View All Items
         </button>

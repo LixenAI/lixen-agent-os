@@ -1,14 +1,12 @@
-import { NextResponse, type NextRequest } from "next/server";
-import { isAuthorized } from "@/lib/auth";
+import { NextResponse } from "next/server";
 import { getCommandCenterState } from "@/lib/data";
+import { isAuthorized } from "@lixen/auth";
 
-export const dynamic = "force-dynamic";
-
-// Protected read-only state endpoint. Returns operator dashboard data.
-// No secrets are included in the payload.
-export function GET(req: NextRequest) {
-  if (!isAuthorized(req)) {
+export async function GET(request: Request) {
+  if (!isAuthorized(request as any)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  return NextResponse.json(getCommandCenterState());
+
+  const state = getCommandCenterState();
+  return NextResponse.json(state);
 }

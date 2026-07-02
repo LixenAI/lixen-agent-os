@@ -39,7 +39,7 @@ export default function OverviewPage() {
               <span className="w-40 text-sm font-medium">
                 {phase.index}. {phase.name}
               </span>
-              <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-800/80">
+              <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-200">
                 <div
                   className="h-full rounded-full bg-gradient-to-r from-neon-500 to-neon-300 shadow-neon"
                   style={{ width: `${phase.completion}%` }}

@@ -1,5 +1,5 @@
 import { executionStyle, sourceStatusStyle, sourceTagStyle } from "@/lib/badges";
-import type { PlaybookItem } from "@/lib/types";
+import type { PlaybookItem } from "@lixen/types";
 import { FilterIcon, ViewIcon } from "../icons";
 
 export function TaskTable({
@@ -16,11 +16,11 @@ export function TaskTable({
           {phaseLabel}
         </h2>
         <div className="ml-auto flex items-center gap-2">
-          <button className="flex items-center gap-1.5 rounded-md border border-hairline bg-slate-900/40 px-2.5 py-1 text-xs text-ink transition-colors hover:border-neon-500/40 hover:bg-white/5 hover:text-neon-300">
+          <button className="flex items-center gap-1.5 rounded-md border border-hairline bg-surface px-2.5 py-1 text-xs text-ink transition-colors hover:border-neon-400/40 hover:bg-slate-100/50 hover:text-neon-600">
             Filter
             <FilterIcon className="h-3.5 w-3.5 text-muted" />
           </button>
-          <button className="flex items-center gap-1.5 rounded-md border border-hairline bg-slate-900/40 px-2.5 py-1 text-xs text-ink transition-colors hover:border-neon-500/40 hover:bg-white/5 hover:text-neon-300">
+          <button className="flex items-center gap-1.5 rounded-md border border-hairline bg-surface px-2.5 py-1 text-xs text-ink transition-colors hover:border-neon-400/40 hover:bg-slate-100/50 hover:text-neon-600">
             View
             <ViewIcon className="h-3.5 w-3.5 text-muted" />
           </button>
@@ -44,7 +44,7 @@ export function TaskTable({
             {items.map((item) => (
               <tr
                 key={item.id}
-                className="border-b border-hairline transition-colors last:border-0 hover:bg-neon-500/5 hover:shadow-[inset_0_0_0_1px_rgba(86,168,255,0.18)]"
+                className="border-b border-hairline transition-colors last:border-0 hover:bg-neon-400/5 hover:shadow-[inset_0_0_0_1px_rgba(91,184,255,0.18)]"
               >
                 <td className="td text-muted">{item.id}</td>
                 <td className="td font-medium">{item.title}</td>

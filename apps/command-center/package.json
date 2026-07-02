@@ -1,15 +1,32 @@
 {
-  "name": "lixenai-launch-command-center",
+  "name": "@lixen/command-center",
   "version": "1.0.0",
-  "description": "LixenAI Launch Command Center — Internal launch command center for GHL agency launch playbook, tracker, and copy library.",
-  "main": "server.js",
+  "description": "LixenAI Launch Command Center — Internal launch playbook, tracker, and copy library",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "@lixen/ui": "*",
+    "@lixen/auth": "*",
+    "@lixen/config": "*",
+    "@lixen/types": "*"
   },
-  "engines": {
-    "node": ">=18.0.0"
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.4.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.2.0"
   }
 }

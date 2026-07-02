@@ -8,7 +8,7 @@ import type {
   PlaybookPhase,
   SyncState,
   TrackerItem,
-} from "./types";
+} from "@lixen/types";
 
 // Seed data mirrors the canonical benchmark (June 22, 2026) and powers local demo mode.
 // No secrets live here; this is safe to serve to the operator UI.

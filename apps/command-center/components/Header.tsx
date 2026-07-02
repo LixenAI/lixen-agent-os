@@ -1,4 +1,4 @@
-import type { BenchmarkReadiness, ChecklistSummary, OperatorProfile, SyncState } from "@/lib/types";
+import type { BenchmarkReadiness, ChecklistSummary, OperatorProfile, SyncState } from "@lixen/types";
 import { ChevronDownIcon, CloudIcon, SourceIcon } from "./icons";
 import { PackageToggle } from "./PackageToggle";
 
@@ -11,10 +11,10 @@ interface HeaderProps {
 
 export function Header({ checklist, benchmark, sync, operator }: HeaderProps) {
   return (
-    <header className="border-b border-hairline bg-slate-950/60 backdrop-blur-xl">
+    <header className="border-b border-hairline bg-white/80 backdrop-blur-xl">
       <div className="flex items-center gap-6 px-6 py-3">
         <div className="min-w-[14rem]">
-          <h1 className="text-base font-bold leading-tight text-ink [text-shadow:0_0_16px_rgba(86,168,255,0.25)]">
+          <h1 className="text-base font-bold leading-tight text-ink [text-shadow:0_0_16px_rgba(91,184,255,0.25)]">
             LixenAI Launch Command Center
           </h1>
           <p className="text-xs text-muted">
@@ -32,7 +32,7 @@ export function Header({ checklist, benchmark, sync, operator }: HeaderProps) {
 
         <div className="ml-auto flex items-center gap-5">
           <div className="hidden items-center gap-2 text-2xs text-muted xl:flex">
-            <CloudIcon className="h-4 w-4 text-neon-400" />
+            <CloudIcon className="h-4 w-4 text-neon-500" />
             <span>{sync.message}</span>
           </div>
           <div className="hidden items-center gap-2 text-2xs text-muted xl:flex">
@@ -42,8 +42,8 @@ export function Header({ checklist, benchmark, sync, operator }: HeaderProps) {
               <p className="font-semibold text-ink">Canonical</p>
             </div>
           </div>
-          <button className="flex items-center gap-2 rounded-md border border-hairline bg-slate-900/40 px-2 py-1 transition-colors hover:border-neon-500/40 hover:bg-slate-800/60">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-neon-500/40 bg-slate-800 text-2xs font-bold text-neon-300 shadow-neon">
+          <button className="flex items-center gap-2 rounded-md border border-hairline bg-surface px-2 py-1 transition-colors hover:border-neon-400/40 hover:bg-slate-100/80">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-neon-400/40 bg-white text-2xs font-bold text-neon-500 shadow-neon">
               {operator.initials}
             </span>
             <span className="text-left leading-tight">
@@ -63,7 +63,7 @@ export function Header({ checklist, benchmark, sync, operator }: HeaderProps) {
 }
 
 function Divider() {
-  return <div className="h-9 w-px bg-gradient-to-b from-transparent via-neon-500/30 to-transparent" />;
+  return <div className="h-9 w-px bg-gradient-to-b from-transparent via-neon-400/30 to-transparent" />;
 }
 
 function KpiChecklist({ checklist }: { checklist: ChecklistSummary }) {
@@ -76,7 +76,7 @@ function KpiChecklist({ checklist }: { checklist: ChecklistSummary }) {
         <span className="text-2xl font-bold leading-none text-ink">
           {checklist.percent}%
         </span>
-        <div className="h-2 w-40 overflow-hidden rounded-full bg-slate-800/80">
+        <div className="h-2 w-40 overflow-hidden rounded-full bg-slate-200">
           <div
             className="h-full rounded-full bg-gradient-to-r from-neon-500 to-neon-300 shadow-neon"
             style={{ width: `${checklist.percent}%` }}
