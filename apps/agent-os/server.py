@@ -10,10 +10,12 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, Optional
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from main import LixenOS
+from chat import router as chat_router
 
 # Global instance
 lixen_os: Optional[LixenOS] = None
@@ -39,6 +41,19 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan,
 )
+
+# ─── CORS ──────────────────────────────────────────────────
+# Allows the command-center frontend to call the agent-os API directly.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ─── Routers ───────────────────────────────────────────────
+app.include_router(chat_router)
 
 
 class TaskRequest(BaseModel):
