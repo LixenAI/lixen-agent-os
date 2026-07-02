@@ -12,7 +12,7 @@
   "sideEffects": false,
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --noEmit",
     "lint": "eslint src/"
   },
   "dependencies": {
