@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  AgentsIcon,
   LibraryIcon,
   OverviewIcon,
   PlaybookIcon,
@@ -14,6 +15,7 @@ const NAV = [
   { href: "/overview", label: "Overview", Icon: OverviewIcon },
   { href: "/playbook", label: "Playbook", Icon: PlaybookIcon },
   { href: "/tracker", label: "Tracker", Icon: TrackerIcon },
+  { href: "/agents", label: "Agent OS", Icon: AgentsIcon },
   { href: "/library", label: "Library", Icon: LibraryIcon },
   { href: "/settings", label: "Settings", Icon: SettingsIcon },
 ];

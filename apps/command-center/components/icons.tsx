@@ -37,6 +37,15 @@ export const TrackerIcon = (p: IconProps) => (
   </svg>
 );
 
+export const AgentsIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="7" r="3" />
+    <circle cx="5" cy="17" r="2.5" />
+    <circle cx="19" cy="17" r="2.5" />
+    <path d="M10 9.5 6.5 15M14 9.5l3.5 5.5M7.5 17h9" />
+  </svg>
+);
+
 export const LibraryIcon = (p: IconProps) => (
   <svg {...base(p)}>
     <rect x="3" y="4" width="18" height="14" rx="2" />
